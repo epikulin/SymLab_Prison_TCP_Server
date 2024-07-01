@@ -49,14 +49,17 @@ private slots:
 
    void HandlepushButton();
    void HandlepushButton_2();
+   void HandlepushButton_3();
    void mytimerEvent();
    void checkbox(bool);
+   void indexChanged(int index);
 
 private:
     Ui::MainWindow *ui;
     int m_timerId;
     QTcpServer *server, *server_aux;
-    QTcpSocket *socket, *socket_aux;
+    //QTcpSocket *socket, *socket_aux;
+    QUdpSocket *socket, *socket_aux;
     QHash<QTcpSocket*, QByteArray*> buffers; //We need a buffer to store data until block has completely received
     QHash<QTcpSocket*, qint32*> sizes; //We need to store the size to verify if a block has received completely
     QStringList fields;
